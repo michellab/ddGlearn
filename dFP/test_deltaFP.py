@@ -6,7 +6,7 @@ from rdkit import Chem
 from rdkit.Chem import AllChem, rdmolfiles, rdFMCS
 from rdkit.Chem.Draw import IPythonConsole
 
-def DeleteSubstructs2(mol, submol):
+def DeleteSubstructs(mol, submol):
     matches = mol.GetSubstructMatches(submol)
     print(mol)
     res = []
@@ -81,8 +81,8 @@ MCS_SMARTS = Chem.MolFromSmarts(MCS_object.smartsString)
 
 
 # remove MCS from each molecule:
-lig02_stripped = AllChem.DeleteSubstructs(lig02_mol, MCS_SMARTS)
-lig12_stripped = AllChem.DeleteSubstructs(lig12_mol, MCS_SMARTS)
+lig02_stripped = DeleteSubstructs(lig02_mol, MCS_SMARTS)
+lig12_stripped = DeleteSubstructs(lig12_mol, MCS_SMARTS)
 
 # print SMILES of each stripped molecule:
 print("lig02: " + str([Chem.MolToSmiles(m) for m in lig02_stripped]))
