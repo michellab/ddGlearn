@@ -5,10 +5,8 @@ Scripts pull ligand data from ./fesetup/poses/*
 
 Prerequisites:
 
-RDKit
-
-DeepChem
-
+RDKit\n
+DeepChem\n
 Mordred
 
 
