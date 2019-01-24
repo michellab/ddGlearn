@@ -11,6 +11,15 @@ RDKit, DeepChem, Mordred
 
 
 To do:
+- deltaFP:
+	- rebuild to take MOL2 instead of PDB
+	- adjust to take input parameters
 - DESCR:
-
+	- adjust to take input parameters
 - SPLIF:
+	- all the things
+
+- General:
+	- work towards first learned model
+	- integrate the three scripts into a notebook 
+
