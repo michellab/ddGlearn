@@ -39,11 +39,11 @@ def read_morph_file(MorphFilePath):
         print("Total amount of perturbations is: ",len(perturbation_list))
         print("#####################################")
     
-    # replace ligand names with paths to their respective pdb files:
+    # replace ligand names with paths to their respective mol2 files:
     perturbations_paths = []
     for morph_pair in perturbation_list:
-        member1_path = "../fesetup/poses/" + str(morph_pair[0]) + "/ligand.pdb"
-        member2_path = "../fesetup/poses/" + str(morph_pair[1]) + "/ligand.pdb"
+        member1_path = "../fesetup/poses/" + str(morph_pair[0]) + "/ligand.mol2"
+        member2_path = "../fesetup/poses/" + str(morph_pair[1]) + "/ligand.mol2"
         perturbations_paths.append([member1_path, member2_path])
 
     return perturbations_paths
@@ -103,22 +103,29 @@ def DeleteSubstructs_unique(mol, submol):
 
 
 def build_reactions(perturbations_all_paths):
-    # loop over each perturbation in the list and load the pdb files:
+    # loop over each perturbation in the list and load the mol2 files:
     perturbation_reactions = []
+
+    print("Converting PDB ligands to MOL2..")
+    os.system("for f in ../fesetup/poses/*/ligand.pdb; do \
+        mol2string=$(echo $f | sed 's/.pdb/.mol2/g'); \
+        obabel -i pdb $f -O $mol2string; \
+        done >/dev/null 2>&1")
+
     for perturbation_pair_path in perturbations_all_paths:
 
     # regenerate the perturbation (A>B):
-        ligA = perturbation_pair_path[0].replace("../fesetup/poses/", "").replace("/ligand.pdb","")
-        ligB = perturbation_pair_path[1].replace("../fesetup/poses/", "").replace("/ligand.pdb","")
+        ligA = perturbation_pair_path[0].replace("../fesetup/poses/", "").replace("/ligand.mol2","")
+        ligB = perturbation_pair_path[1].replace("../fesetup/poses/", "").replace("/ligand.mol2","")
         perturbation = str(ligA) + ">" + str(ligB)
 
-    # read in PDB files:
+    # read in mol2 files:
         perturbation_pair = []
         member1_pdb_file = open(perturbation_pair_path[0], 'r').read()
         member2_pdb_file = open(perturbation_pair_path[1], 'r').read()  
 
-        perturbation_pair.append(rdmolfiles.MolFromPDBBlock(member1_pdb_file))
-        perturbation_pair.append(rdmolfiles.MolFromPDBBlock(member2_pdb_file))
+        perturbation_pair.append(rdmolfiles.MolFromMol2Block(member1_pdb_file))
+        perturbation_pair.append(rdmolfiles.MolFromMol2Block(member2_pdb_file))
 
 
     # generate MCS (taking into account substitutions in ring structures)
