@@ -1,18 +1,18 @@
 # ddGlearn
 
 Repository of scripts to generate (eventually) a machine-learned correction term for alchemical free energy calculations.
-Scripts pull ligand data from ./fesetup/poses/*
+Scripts pull ligand data from ../fesetup/poses/* and ../fesetup/protein/
 
 Prerequisites:
 System: Python 3.x, OBabel
 Python: RDKit, DeepChem, Mordred, ODDT
 
 To do:
-- deltaFP:
+- pFP:
 	- adjust to take input parameters
-- DESCR:
+- dDESCR:
 	- adjust to take input parameters
-- SPLIF:
+- dPLEC:
 	- all the things
 
 - General:
