@@ -3,13 +3,13 @@
 Repository of scripts to generate (eventually) a machine-learned correction term for alchemical free energy calculations.
 Scripts pull ligand data from ../fesetup/poses/* and ../fesetup/protein/
 
-Prerequisites:
+###### Prerequisites:
 - System: 
 	- Python 3.x, OBabel
 - Python: 
 	- RDKit, DeepChem, Mordred, ODDT
 
-To do:
+###### To do:
 - pFP:
 	- adjust to take input parameters
 - dDESCR:
