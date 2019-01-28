@@ -4,8 +4,8 @@ Repository of scripts to generate (eventually) a machine-learned correction term
 Scripts pull ligand data from ../fesetup/poses/* and ../fesetup/protein/
 
 Prerequisites:
-System: Python 3.x, OBabel
-Python: RDKit, DeepChem, Mordred, ODDT
+	- System: Python 3.x, OBabel
+	- Python: RDKit, DeepChem, Mordred, ODDT
 
 To do:
 - pFP:
