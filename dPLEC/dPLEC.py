@@ -1,15 +1,13 @@
-from rdkit import Chem
-import pandas as pd
 import oddt
 from oddt import fingerprints
-import glob
+
 import numpy as np
 np.set_printoptions(edgeitems=10)
 
 import itertools
 import csv
 import os
-import traceback
+
 
 
 MorphFilePath = '../fesetup/morph.in'
@@ -112,7 +110,7 @@ def calcFPs(perturbation_mols_list, path_to_protein, fpsize):
 
 
 
-def MergeWriteNamesAndPLECs(pdbs, deltaPLECs):
+def MergeWriteNamesAndPLECs(pdbs, deltaPLECs, fpsize):
 
     # Isolate perturbation name from source paths:
     perturbation_names = []
@@ -132,8 +130,11 @@ def MergeWriteNamesAndPLECs(pdbs, deltaPLECs):
     print("Writing to \'./dPLECs_output/perts_dPLECs.csv\'")
 
     with open('./dPLECs_output/perts_dPLECs.csv', 'w') as csvfile:
+        writer = csv.writer(csvfile)
+
+        columns = ["Perturbation"] + np.arange(1, fpsize).tolist()
+        writer.writerow(columns)
         for row in flattened_data:
-            writer = csv.writer(csvfile)
             writer.writerow(row)
 
 
@@ -144,4 +145,4 @@ pdbs = read_morph_file(MorphFilePath)
 mol_paths = pdbPaths_to_MOL2s(pdbs)
 deltaPLECs = calcFPs(mol_paths, PathToProtein, 16384)
 
-MergeWriteNamesAndPLECs(pdbs, deltaPLECs)
+MergeWriteNamesAndPLECs(pdbs, deltaPLECs, 16384)
