@@ -7,7 +7,7 @@ Scripts pull ligand data from ../fesetup/poses/* and ../fesetup/protein/
 - System: 
 	- Python 3.x, OBabel
 - Python: 
-	- RDKit, DeepChem, Mordred, ODDT
+	- RDKit, DeepChem, Mordred, ODDT, MDTraj
 
 ###### To do:
 - pFP:
