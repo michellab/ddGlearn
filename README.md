@@ -15,9 +15,10 @@ Scripts pull ligand data from ../fesetup/poses/* and ../fesetup/protein/
 - dDESCR:
 	- adjust to take input parameters
 - dPLEC:
-	- all the things
+	- adjust to take input parameters
+	- create PLEC-time matrix
 
 - General:
 	- work towards first learned model
-	- integrate the three scripts into a notebook 
+	- integrate scripts into a notebook 
 
