@@ -184,8 +184,8 @@ def build_reactions(perturbations_all_paths):
 
 def build_deltaFP(reactions):
     print("Building FPs and writing to CSV..")
-    FP_column = np.arange(1, 257).tolist()
-    FP_column = [str(item) for item in FP_column]
+    FP_column = np.arange(0, 256).tolist()
+    FP_column = ["pfp" + str(item) for item in FP_column]
 
     PerturbationFingerprints = [
     "Perturbation", 
