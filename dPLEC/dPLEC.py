@@ -132,7 +132,10 @@ def MergeWriteNamesAndPLECs(pdbs, deltaPLECs, fpsize):
     with open('./dPLECs_output/perts_dPLECs.csv', 'w') as csvfile:
         writer = csv.writer(csvfile)
 
-        columns = ["Perturbation"] + np.arange(1, fpsize).tolist()
+        PLEC_index = np.arange(0, fpsize).tolist()
+        colnames = ["plec" + str(index) for index in PLEC_index]
+        columns = ["Perturbation"] + colnames
+        
         writer.writerow(columns)
         for row in flattened_data:
             writer.writerow(row)
