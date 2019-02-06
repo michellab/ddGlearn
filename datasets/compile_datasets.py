@@ -8,9 +8,8 @@ import itertools
 pFP_path = '../pFP/dFP_output/perts_APFPs.csv'
 dFEAT_path = '../dFEAT/dFeatures_output/deltaFeatures.csv'
 dPLEC_path = '../dPLEC/dPLECs_output/perts_dPLECs.csv'
-experi_path = '../ddGlearner/input/experimental/experimental_dGs.csv'
-summary_path = "summaries/summary.csv"
-dataset_path = "datasets_compiled/dataset_123.csv"
+experi_path = 'input/EXP/experimental_dGs.csv'
+summary_path = "input/FEP/summary.csv"
 MorphFilePath = '../fesetup/morph.in'
 offsets_path  = 'ddG_offset_compiled/perts_ddG_offsets.csv'
 
