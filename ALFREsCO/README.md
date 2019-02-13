@@ -1,3 +1,5 @@
-ddG_offset_learner.py is set to deep learn a regression model on ddG offsets. Script is very premature and not formatted well.
+Learning model directory.
 
-the keras learner is cleaner and runs more efficiently. It is set to Z-score and reduce features to 99% VE using PCA.
+Scanner_ALFRESCO.py uses bayesian optimisation to search for optimal hyperparameter settings. This script can be run per dataset, per node on a computing cluster.
+
+keras_ddG_offset_learner.py will, given a specific set of hyperparameters, reiteratively split each dataset, predict, and plot histograms over a given amount of iterations.
