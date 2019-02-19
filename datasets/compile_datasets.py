@@ -162,9 +162,13 @@ def build_dataset(pFP_path, dFEAT_path, dPLEC_path, offsets_path):
 	
 	
 	dataset_123 = pd.merge(dataset_123, dG_offsets, left_index=True,right_index=True)
-	
+	all_perts = pFP.index.values.tolist()
+	FEPped = [ pert[0] for pert in ddGs_FEP ]
+	for pert in all_perts:
+		if pert not in FEPped:
+			print(pert)
 	dataset_123 = (dataset_123[~dataset_123.index.duplicated()])
-		
+	"""	
 	print("Built dataset; excluded duplicates. \nThe dimensions of the dataset (123) are " + str(len(dataset_123)) + " rows (i.e. perturbations) and " + str(len(dataset_123.columns)) + " columns (i.e. delta-descriptors).")
 	print("Writing to \'./ddG_offset_compiled/dataset_123.csv\'..")
 
@@ -173,7 +177,7 @@ def build_dataset(pFP_path, dFEAT_path, dPLEC_path, offsets_path):
 		os.makedirs("./ddG_offset_compiled")
 
 	dataset_123.to_csv("ddG_offset_compiled/dataset_123.csv", index=True)
-	print("#####################################")
+	print("#####################################")"""
 	
 	
 
@@ -235,7 +239,7 @@ dataset_123 = build_dataset(pFP_path, dFEAT_path, dPLEC_path, offsets_path)
 
 
 
-split_dataset(dataset_123)
+#split_dataset(dataset_123)
 
 
 
