@@ -1,13 +1,14 @@
 # ddGlearn
 
 Repository of scripts to generate (eventually) a machine-learned correction term for alchemical free energy calculations.
-Scripts pull ligand data from ../fesetup/poses/* and ../fesetup/protein/
+Scripts pull ligand data from datasets/input/[target]/poses/* and datasets/input/[target]protein/[target]/*. Note that each builder script requires strict adherence to directory formatting in datasets/input/.
 
 ###### Prerequisites:
 - System: 
 	- Python 3.x, OBabel
 - Python: 
 	- RDKit, DeepChem, Mordred, ODDT, MDTraj
+	- Tensorflow, Scikit-Optimize
 
 ###### To do:
 - pFP:
