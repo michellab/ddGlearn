@@ -29,14 +29,14 @@ train_test_split = 0.8
 PCA_threshold = 0.99999
 
 loss_function = 'mse'
-activation_function = 'leaky_relu'							#TD find way to loop over different modules
+activation_function = 'leaky_relu'							
 dropout = 0.2
 
 
 n_epochs = 300
 batch_size = 128
 
-optimizer = 'SGD'											#TD find way to loop over different modules
+optimizer = 'SGD'											
 learning_rate = 0.05
 clipnorm = 1
 momentum = 0.01
@@ -179,7 +179,7 @@ def FF_DNN_KERAS(preprocessed_data_dict):
 		MAE = hist["val_mean_absolute_error"].tail(10).mean()
 		print("Model MAE on external testing set (n="+str(len(test_labels))+"): ", MAE)
 		resulting_MAEs[name] = MAE
-		"""
+		
 		#Not used in optimisation:
 		plt.subplot()
 		plt.xlabel('Epoch')
@@ -195,7 +195,7 @@ def FF_DNN_KERAS(preprocessed_data_dict):
 		plt.title(name, fontsize=16)
 
 
-		plt.show()"""
+		plt.show()
 
 	return resulting_MAEs
 
